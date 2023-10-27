@@ -1,15 +1,22 @@
-let elementsOS = [...document.getElementsByClassName("os")];
-let elementsLanguage = [...document.getElementsByClassName("language")];
-let elementsBrowser = [...document.getElementsByClassName("browser")];
+"use strict";
 
-let elementsWidth = [...document.getElementsByClassName("width")];
-let elementsHeight = [...document.getElementsByClassName("height")];
-let elementsOrientation = [...document.getElementsByClassName("orientation")];
+//only because the requirements ask for helper functions
+function getElementArrayByClassName(className) {
+  return [...document.getElementsByClassName(className)];
+}
 
-let elementsBatteryLevel = [...document.getElementsByClassName("level")];
-let elementsBatteryStatus = [...document.getElementsByClassName("status")];
+let elementsOS = getElementArrayByClassName("os");
+let elementsLanguage = getElementArrayByClassName("language");
+let elementsBrowser = getElementArrayByClassName("browser");
 
-let elementsOnline = [...document.getElementsByClassName("online")];
+let elementsWidth = getElementArrayByClassName("width");
+let elementsHeight = getElementArrayByClassName("height");
+let elementsOrientation = getElementArrayByClassName("orientation");
+
+let elementsBatteryLevel = getElementArrayByClassName("level");
+let elementsBatteryStatus = getElementArrayByClassName("status");
+
+let elementsOnline = getElementArrayByClassName("online");
 
 function updateOS() {
   let os = getOS();
@@ -86,7 +93,7 @@ updateLevel();
 updateStatus();
 updateNetworkStatus();
 
-
+//ok but what's the point in adding an event listener helper function when it's already 1 line of code.
 window.addEventListener('resize', e=>{
   updateWidth();
   updateHeight();
